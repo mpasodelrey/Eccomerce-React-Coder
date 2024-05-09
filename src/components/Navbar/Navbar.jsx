@@ -9,7 +9,7 @@ const Navbar = () => {
         { title: "Inicio", path: "/", active: true },
         { title: "Productos", path: "/", active: false },
         { title: "Contacto", path: "/", active: false },
-        { title: "Redes Sociales", path: "https://tus-redes-sociales.com", active: false }, // Cambia la URL aquí
+        { title: "Redes Sociales", path: "https://www.instagram.com/gm_providers/", active: false }, // Cambia la URL aquí
     ];
 
     const cartItemsCount = 5; // Número fijo hardcodeado
