@@ -1,0 +1,119 @@
+/* Estilos generales del navbar */
+.navbar {
+    width: 100%;
+    height: 60px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 0 20px; /* Ajuste del padding */
+    justify-content: space-between; /* Alinea los elementos en los extremos */
+}
+
+.navbar-title {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+}
+
+.navbar-links {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 20px;
+    flex-grow: 1; /* Hace que navbar-links ocupe el espacio restante */
+    justify-content: center; /* Alinea los elementos en el centro */
+}
+
+.navbar-link {
+    text-decoration: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 15px;
+    color: #333;
+}
+
+.navbar-link-active {
+    color: #f5455c;
+}
+
+/* Iconos */
+.navbar-icons {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.navbar-icon {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}
+
+.navbar-cart {
+    position: relative;
+}
+
+.navbar-cart-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: red;
+    color: white;
+    border-radius: 50%;
+    padding: 3px 6px;
+    font-size: 10px;
+}
+
+/* Menú responsive */
+.navbar-menu {
+    display: none;
+    cursor: pointer;
+    font-size: 30px;
+    margin-right: 20px; /* Añade un margen a la derecha del menú hamburguesa */
+}
+
+/* Menú desplegable responsive */
+.navbar-dropdown {
+    display: none;
+    flex-direction: column;
+    background-color: #fff;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    padding: 10px 0;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-dropdown a {
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #333;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 15px;
+}
+
+@media (max-width: 960px) {
+    .navbar-links {
+        display: none;
+    }
+
+    .navbar-menu {
+        display: flex; /* Cambia a 'flex' para que sea visible */
+    }
+
+    .navbar-dropdown {
+        display: flex;
+    }
+}
+
+@media (min-width: 965px) {
+    .navbar-menu {
+        display: none; /* Oculta el menú hamburguesa en pantallas grandes */
+    }
+}
