@@ -1,12 +1,11 @@
-/* Estilos generales del navbar */
 .navbar {
     width: 100%;
     height: 60px;
     background-color: #fff;
     display: flex;
     align-items: center;
-    padding: 0 20px; /* Ajuste del padding */
-    justify-content: space-between; /* Alinea los elementos en los extremos */
+    padding: 0 20px; 
+    justify-content: space-between; 
 }
 
 .navbar-title {
@@ -23,8 +22,8 @@
     padding: 0;
     margin: 0;
     gap: 20px;
-    flex-grow: 1; /* Hace que navbar-links ocupe el espacio restante */
-    justify-content: center; /* Alinea los elementos en el centro */
+    flex-grow: 1; 
+    justify-content: center; 
 }
 
 .navbar-link {
@@ -68,15 +67,13 @@
     font-size: 10px;
 }
 
-/* Menú responsive */
 .navbar-menu {
     display: none;
     cursor: pointer;
     font-size: 30px;
-    margin-right: 20px; /* Añade un margen a la derecha del menú hamburguesa */
+    margin-right: 20px; 
 }
 
-/* Menú desplegable responsive */
 .navbar-dropdown {
     display: none;
     flex-direction: column;
@@ -104,7 +101,7 @@
     }
 
     .navbar-menu {
-        display: flex; /* Cambia a 'flex' para que sea visible */
+        display: flex; 
     }
 
     .navbar-dropdown {
@@ -114,6 +111,6 @@
 
 @media (min-width: 965px) {
     .navbar-menu {
-        display: none; /* Oculta el menú hamburguesa en pantallas grandes */
+        display: none; 
     }
 }

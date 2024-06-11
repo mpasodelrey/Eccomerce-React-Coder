@@ -1,23 +1,20 @@
-import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { getProduct } from "../../asyncMock";
-import { useParams } from "react-router"
 
+export default function ProductDetail() {
+  const { id } = useParams();
+  const product = getProduct(parseInt(id));
 
-export default function SingleProd(){
-    const [product, setProduct]= useState({});
-    const { prodId } = useParams();
+  if (!product) {
+    return <div>Producto no encontrado</div>;
+  }
 
-    useEffect(()=>{
-        setProduct(getProduct(prodId))
-    },[])
-
-    return(<>
-        <h1>Single Prod</h1>
-        <p>ID: {prodId}</p>
-        <h3>Nombre: {product.title}</h3>
-        <img src={product.image} alt={product.title} />
-        <p>Descripcion: {product.description}</p>
-        <p>Categoria: {product.category}</p>
-        <p>Precio: {product.price}</p>
-    </>)
+  return (
+    <div>
+      <h2>{product.title}</h2>
+      <p>Precio: ${product.price}</p>
+      <p>Descripción: {product.Description}</p>
+      <img src={product.image} alt={product.title} />
+    </div>
+  );
 }
