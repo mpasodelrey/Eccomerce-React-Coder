@@ -46,11 +46,6 @@
     font-weight: bold;
 }
 
-.product-rating {
-    margin-top: 5px;
-    color: #ffc107;
-}
-
 .add-to-cart-btn {
     display: block;
     width: 100%;
@@ -67,16 +62,14 @@
     transition: background-color 0.3s ease;
 }
 
-/* Media query para pantallas más pequeñas */
 @media screen and (max-width: 768px) {
     .product-card {
-        flex: 0 1 calc(50% - 10px); /* Dos tarjetas por fila en pantallas más pequeñas */
+        flex: 0 1 calc(50% - 10px); 
     }
 }
 
-/* Media query para pantallas aún más pequeñas */
 @media screen and (max-width: 480px) {
     .product-card {
-        flex: 0 1 calc(100% - 10px); /* Una tarjeta por fila en pantallas muy pequeñas */
+        flex: 0 1 calc(100% - 10px); 
     }
 }

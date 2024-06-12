@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./ProductCard.css";
 
-export default function ProductCard({ title, price, image }) {
+export default function ProductCard({ idProd, title, price, image }) {
     return (
         <div className="cards-container">
             <div className="product-card">
@@ -9,7 +9,7 @@ export default function ProductCard({ title, price, image }) {
                 <div className="product-details">
                     <h4 className="product-title">{title}</h4>
                     <p className="product-price">Precio ${price}</p>
-                    <Link to={`/product/${id}`} className="add-to-cart-btn">Comprar</Link>
+                    <Link to={`/product/${idProd}`} className="add-to-cart-btn">Ver detalles</Link>
                 </div>
             </div>
         </div>

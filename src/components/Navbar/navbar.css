@@ -1,116 +1,52 @@
 .navbar {
-    width: 100%;
-    height: 60px;
-    background-color: #fff;
     display: flex;
     align-items: center;
-    padding: 0 20px; 
-    justify-content: space-between; 
-}
-
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 10px 20px;
+  }
+  
 .navbar-title {
-    margin: 0;
-    font-size: 18px;
-    font-weight: bold;
+    font-size: 24px;
     color: #333;
     text-decoration: none;
-}
-
+  }
+  
 .navbar-links {
     display: flex;
     list-style: none;
     padding: 0;
     margin: 0;
-    gap: 20px;
-    flex-grow: 1; 
-    justify-content: center; 
-}
-
+  }
+  
 .navbar-link {
+    margin: 0 10px;
     text-decoration: none;
-    text-transform: uppercase;
-    cursor: pointer;
-    font-weight: 400;
-    font-size: 15px;
     color: #333;
-}
-
+    font-size: 18px;
+  }
+  
 .navbar-link-active {
-    color: #f5455c;
-}
-
-/* Iconos */
+    font-weight: bold;
+  }
+  
 .navbar-icons {
     display: flex;
     align-items: center;
-    gap: 16px;
-}
-
+  }
+  
 .navbar-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
     cursor: pointer;
-    width: 20px;
-    height: 20px;
-}
-
+  }
+  
 .navbar-cart {
     position: relative;
-}
-
-.navbar-cart-badge {
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    background: red;
-    color: white;
-    border-radius: 50%;
-    padding: 3px 6px;
-    font-size: 10px;
-}
+  }
 
 .navbar-menu {
-    display: none;
     cursor: pointer;
-    font-size: 30px;
-    margin-right: 20px; 
-}
-
-.navbar-dropdown {
-    display: none;
-    flex-direction: column;
-    background-color: #fff;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    padding: 10px 0;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-}
-
-.navbar-dropdown a {
-    padding: 10px 20px;
-    text-decoration: none;
-    color: #333;
-    text-transform: uppercase;
-    font-weight: 400;
-    font-size: 15px;
-}
-
-@media (max-width: 960px) {
-    .navbar-links {
-        display: none;
-    }
-
-    .navbar-menu {
-        display: flex; 
-    }
-
-    .navbar-dropdown {
-        display: flex;
-    }
-}
-
-@media (min-width: 965px) {
-    .navbar-menu {
-        display: none; 
-    }
-}
+  }
+  
