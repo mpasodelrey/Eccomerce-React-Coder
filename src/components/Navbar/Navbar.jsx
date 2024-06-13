@@ -13,7 +13,7 @@ export default function Navbar({ cartItemCount }) {
         <li><Link to="/" className="navbar-link">Inicio</Link></li>
         <li><Link to="/products" className="navbar-link">Productos</Link></li>
         <li><Link to="/contact" className="navbar-link">Contacto</Link></li>
-        <li><a href="https://www.instagram.com/gm_providers/" className="navbar-link">Redes Sociales</a></li>
+        <li><a href="https://www.instagram.com" className="navbar-link">Redes Sociales</a></li>
       </ul>
       <div className="navbar-icons">
         <img src={searchIcon} alt="search" className="navbar-icon" />
