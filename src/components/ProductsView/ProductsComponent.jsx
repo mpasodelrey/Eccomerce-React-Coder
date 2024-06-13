@@ -1,31 +1,31 @@
 import { useEffect, useState } from "react";
-import { getProducts } from "../../asyncMock";
 import ProductCard from "../ProductsView/ProductCard";
+import { useParams } from "react-router";
+import {collection, getDocs, query, where} from "firebase/firestore"
+import {db} from "../../firebase/config"
 
 export default function ProductsComponent() {
     const [products, setProducts] = useState([]);
-    const [error, setError] = useState(null);
-    const [loading, setLoading] = useState(true);
+    const [titulo, setTitulo] = useState("Productos");
+    const categoria = useParams().categoria;
 
     useEffect(() => {
-        getProducts
-            .then(data => {
-                setProducts(data);
-                setLoading(false);
+        const productosRef = collection(db, "productos");
+
+        const q = categoria ? query(productosRef, where("category", "==", categoria)) : productosRef; 
+
+
+        getDocs(q)
+            .then((resp)=> {
+
+                setProducts(
+                    resp.docs.map((doc) => {
+                        return {...doc.data(), id: doc.id}
+                    })
+                );
             })
-            .catch(error => {
-                setError(error.message);
-                setLoading(false);
-            });
-    }, []);
 
-    if (loading) {
-        return <div>Cargando productos...</div>;
-    }
-
-    if (error) {
-        return <div>Error: {error}</div>;
-    }
+    }, [categoria]);
 
     return (
         <>

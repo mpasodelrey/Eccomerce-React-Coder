@@ -1,12 +1,28 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { getProduct } from '../../asyncMock';
+import {doc, getDoc} from "firebase/firestore"
 import './SingleProd.css';
+import { db } from '../../firebase/config';
 
 export default function SingleProd({ addToCart }) {
   const { id } = useParams();
-  const product = getProduct(parseInt(id));
+  const [product, setProduct] = useState(null);
   const [quantity, setQuantity] = useState(1);
+
+  useEffect(() => {
+    const fetchProduct = async () => {
+    const docRef = doc(db, "productos", id);
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+      setProduct({ ...docSnap.data(), id: docSnap.id });
+    } else {
+      console.log("No such document!");
+    }
+  };
+
+  fetchProduct();
+}, [id]);
+
 
   const handleIncrease = () => {
     setQuantity(quantity + 1);
@@ -23,7 +39,7 @@ export default function SingleProd({ addToCart }) {
   };
 
   if (!product) {
-    return <div>Producto no encontrado</div>;
+    return <div>Loading...</div>;
   }
 
   return (

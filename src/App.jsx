@@ -5,19 +5,22 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ProductsComponent from "./components/ProductsView/ProductsComponent.jsx";
 import ContactComponent from "./components/ContactView/ContactComponent.jsx";
 import SingleProd from "./components/ProductView/SingleProd.jsx";
-import CartComponent from './components/CartView/CartComponent.jsx';
+import CartContext from './components/context/CartContext.jsx';
+import Checkout from './components/Checkout/Checkout.jsx';
+
 
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
+  const [nextId, setNextId] = useState(0);
 
   const addToCart = (product, quantity) => {
-    setCartItems([...cartItems, { ...product, quantity }]);
+    setCartItems([...cartItems, { ...product, quantity, id: nextId }]);
+    setNextId(nextId + 1);
   };
 
-  const removeFromCart = (index) => {
-    const newCartItems = [...cartItems];
-    newCartItems.splice(index, 1);
+  const removeFromCart = (id) => {
+    const newCartItems = cartItems.filter(item => item.id !== id);
     setCartItems(newCartItems);
   };
   return (
@@ -29,7 +32,8 @@ function App() {
         <Route exact path="/products" element={<ProductsComponent/>} />
         <Route exact path="/product/:id" element={<SingleProd addToCart={addToCart}/>} />
         <Route exact path="/contact" element={<ContactComponent/>} />
-        <Route exact path="/cart" element={<CartComponent cartItems={cartItems} removeFromCart={removeFromCart} />} />
+        <Route exact path="/cart" element={<CartContext cartItems={cartItems} removeFromCart={removeFromCart} />} />
+        <Route exact path="/checkout" element={<Checkout/>} />
       </Routes>
     </BrowserRouter>
     </>
